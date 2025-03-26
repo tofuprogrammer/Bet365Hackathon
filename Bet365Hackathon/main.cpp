@@ -1,14 +1,19 @@
-//
-//  main.cpp
-//  Bet365Hackathon
-//
-//  Created by Sam Hart on 26/03/2025.
-//
-
 #include <iostream>
+#include <iterator>
+#include <fstream>
+#include <vector>
+#include <algorithm>
 
-int main(int argc, const char * argv[]) {
-    // insert code here...
-    std::cout << "Hello, World!\n";
-    return 0;
+int main()
+{
+    using namespace std;
+    ifstream products ("/Users/sam/XcodeProjects/Bet365Hackathon/Bet365Hackathon/input1.txt");
+    istream_iterator<int> start (products), end;
+    vector<int> productsVector (start, end);
+    cout << "Read " << productsVector.size() << " numbers\n";
+    copy (productsVector.begin(),
+          productsVector.end(),
+          ostream_iterator<int>(cout, "\n"));
+
+    int boxSizes[4] = {5, 16, 42, 59};
 }
